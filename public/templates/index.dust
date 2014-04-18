@@ -1,0 +1,58 @@
+{>"layouts/master" /}
+
+{<title}
+    Loan Payment Schedule Calculator
+{/title}
+
+{<body}
+    <!--h2>Calculate Schedule for</h2 -->
+    <main role="main">
+       <div class="mb2">
+            <fieldset>
+                <legend align="center">Loan Calculation Form</legend>
+                {#loans}
+                    <form method="POST" action="/payments">
+                        <table align="center">
+                        <tr>
+                            <td><input name="amount" placeholder="Enter the amount owed">  </td><td></td>
+                            <td><input name="apr" placeholder="Interest rate %"></td>  <td></td>
+                            <td><input name="term" placeholder="Payment in Years"></td>  <td></td>
+                            <td><input type="hidden" name="_csrf" value="{_csrf}"> </td>
+                        </tr>
+                         <tr><td><br><input type="submit" value="Calculate"></td></tr>
+                        </table>
+                    </form>
+                {/loans}
+            </fieldset>
+        </div>
+    </main>
+
+    <main role="main">
+       <div class="mb2">
+            <h2 align="center" >Loan Schedule Payment Plans</h2>
+            <table border = "0">
+                <tr align="center" >
+                <td width = "10%">Payment Schedules</td>
+                <td width = "10%">Monthly Amount</td>
+                <td width = "10%">Principle Paid</td>
+                <td width = "10%">Interest Paid</td>
+                <td width = "10%">Balance</td>
+                <td width = "10%">Total Amount Paid</td>
+                <td width = "10%">Total Interest Paid</td>
+                </tr>
+                {#schedules}
+                      <tr border = "1" cellSpacing = "1" align="center">
+                        <td width = "10%">{.paymentNumber}</td>
+                        <td width = "10%">{.currentPayment}</td>
+                        <td width = "10%">{.currentPrinciple}</td>
+                        <td width = "10%">{.currentInterest}</td>
+                        <td width = "10%">{.currentBalance}</td>
+                        <td width = "10%">{.totalPayments}</td>
+                        <td width = "10%">{.totalInterest}</td>
+                      </tr>
+                {/schedules}
+            </table>
+        </div>
+    </main>
+{/body}
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" class="nm-np">
+<head>
+    <meta charset="utf-8"/>
+    <title>{+title /}</title>
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body class="nm-np">
+<header class="white">
+    <div class="wrapper">
+        <h1 align="center" >{@pre type="content" key="master.heading"/}</h1>
+        <p align="center"><i>by Yen Siegel</i></p>
+        <a href="/">Refresh</a><br>
+    </div>
+</header>
+<div class="wrapper">
+    {+body /}
+</div>
+</body>
+</html>
+
